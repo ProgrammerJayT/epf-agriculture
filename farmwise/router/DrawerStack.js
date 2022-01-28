@@ -9,7 +9,9 @@ const Drawer = createDrawerNavigator();
 
 const DrawerStack = () => {
   return (
-    <Drawer.Navigator drawerContent={props => <CustomDrawer {...props} />}>
+    <Drawer.Navigator
+      screenOptions={{headerShown: false}}
+      drawerContent={props => <CustomDrawer {...props} />}>
       <Drawer.Screen name="Landing" component={Landing} />
       <Drawer.Screen name="Settings" component={Settings} />
     </Drawer.Navigator>
