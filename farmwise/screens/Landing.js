@@ -46,20 +46,20 @@ const Landing = ({navigation}) => {
           />
         </TouchableOpacity>
 
-        <Text onPress={toAbout} style={darkMode.farm_wise}>
+        <Text onPress={toAbout} style={theme == 'light'? lightMode.farm_wise : darkMode.farm_wise}>
           Farm Wise
         </Text>
 
         <TouchableOpacity onPress={toMyProfile}>
           <Image
-            style={darkMode.profile_image}
+            style={theme == 'light'? lightMode.profile_image : darkMode.profile_image}
             source={require('../res/images/WhatsApp_Image_2022-01-24_at_12.51.48_AM-removebg-preview.png')}
           />
         </TouchableOpacity>
       </View>
 
       <View style={lightMode.text_input_container}>
-        <FontAwesome name="search" size={20} color={'#3a3a3a'} />
+        <FontAwesome name="search" size={20} color={theme == 'light'? '#3a3a3a' : '#fff'} />
         <TextInput
           placeholder="Search here e.g Cattle, Banana, Broiler, Manure, Market"
           style={lightMode.search_input}
@@ -86,7 +86,7 @@ const Landing = ({navigation}) => {
               alignItems: 'center',
               marginTop: 20,
             }}>
-            <Text style={darkMode.flat_list_heads}>
+            <Text style={theme == 'light'? lightMode.flat_list_heads : darkMode.flat_list_heads}>
               What to plant this January
             </Text>
             <TouchableOpacity>
@@ -129,7 +129,7 @@ const Landing = ({navigation}) => {
               alignItems: 'center',
               marginTop: 50,
             }}>
-            <Text style={darkMode.flat_list_heads}>
+            <Text style={theme == 'light'? lightMode.flat_list_heads : darkMode.flat_list_heads}>
               Our top range of farmers
             </Text>
             <TouchableOpacity>
@@ -191,12 +191,35 @@ const lightMode = StyleSheet.create({
   search_input: {
     width: '98%',
   },
+
+  farm_wise: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#000',
+  },
+
+  flat_list_heads: {
+    fontSize: 20,
+    color: '#000',
+    fontWeight: 'bold',
+    paddingHorizontal: 20,
+  },
+
+  profile_image: {
+    width: 60,
+    height: 60,
+    resizeMode: 'cover',
+    borderRadius: 50,
+    overflow: 'hidden',
+    borderWidth: 1,
+    borderColor: '#fff',
+  },
 });
 
 const darkMode = StyleSheet.create({
   body: {
     flex: 1,
-    backgroundColor: '#000',
+    backgroundColor: '#3a3a3a',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -217,19 +240,19 @@ const darkMode = StyleSheet.create({
     resizeMode: 'cover',
     borderRadius: 50,
     overflow: 'hidden',
-    borderWidth: 0.5,
-    borderColor: '#000',
+    borderWidth: 1,
+    borderColor: '#fff',
   },
 
   farm_wise: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#000',
+    color: '#fff',
   },
 
   flat_list_heads: {
     fontSize: 20,
-    color: '#000',
+    color: '#fff',
     fontWeight: 'bold',
     paddingHorizontal: 20,
   },
