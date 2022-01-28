@@ -4,6 +4,8 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import DrawerStack from './DrawerStack';
+import MyProfile from '../screens/MyProfile';
+import About from '../screens/About';
 
 const Stack = createNativeStackNavigator();
 
@@ -14,6 +16,14 @@ const RootStack = () => {
         <Stack.Screen
           name="Drawer"
           component={DrawerStack}
+        />
+        <Stack.Screen
+          name="MyProfile"
+          component={MyProfile}
+        />
+        <Stack.Screen
+          name="About"
+          component={About}
         />
       </Stack.Navigator>
     </NavigationContainer>

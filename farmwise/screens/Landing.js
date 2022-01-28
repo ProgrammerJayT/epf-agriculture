@@ -1,14 +1,16 @@
 import {
   Appearance,
+  Dimensions,
   Image,
   SafeAreaView,
   StyleSheet,
   Text,
+  TextInput,
   View,
 } from 'react-native';
 import React, {useState, useEffect} from 'react';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import {ScrollView, TouchableOpacity} from 'react-native-gesture-handler';
 
 const Landing = ({navigation}) => {
   const [theme, setTheme] = useState(Appearance.getColorScheme);
@@ -16,6 +18,14 @@ const Landing = ({navigation}) => {
   Appearance.addChangeListener(scheme => {
     setTheme(scheme.colorScheme);
   });
+
+  const toMyProfile = () => {
+    navigation.navigate('MyProfile');
+  };
+
+  const toAbout = () => {
+    navigation.navigate('About');
+  };
 
   return (
     <SafeAreaView style={theme == 'light' ? lightMode.body : darkMode.body}>
@@ -26,21 +36,30 @@ const Landing = ({navigation}) => {
           }}>
           <FontAwesome
             name="align-justify"
-            size={30}
+            size={25}
             color={theme == 'light' ? '#000' : '#fff'}
           />
         </TouchableOpacity>
 
-        <Text style={darkMode.farm_wise}>Farm Wise</Text>
+        <Text onPress={toAbout} style={darkMode.farm_wise}>
+          Farm Wise
+        </Text>
 
-        <TouchableOpacity>
+        <TouchableOpacity onPress={toMyProfile}>
           <Image
             style={darkMode.profile_image}
             source={require('../res/images/WhatsApp_Image_2022-01-24_at_12.51.48_AM-removebg-preview.png')}
           />
         </TouchableOpacity>
       </View>
-      <View style={{flex: 1}}></View>
+
+      <View style={lightMode.text_input_container}>
+        <FontAwesome name="search" size={20} color={'#3a3a3a'} />
+        <TextInput placeholder='Search here e.g Cattle, Banana, Broiler, Manure, Market' style={lightMode.search_input} />
+      </View>
+      <ScrollView style={{flex: 1, backgroundColor: '#3a3', width: '100%', marginTop: 20}}>
+          
+      </ScrollView>
     </SafeAreaView>
   );
 };
@@ -53,6 +72,20 @@ const lightMode = StyleSheet.create({
     backgroundColor: '#fff',
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  text_input_container: {
+    borderWidth: 0.5,
+    borderColor: '#3a3a3a',
+    width: '90%',
+    marginTop: 10,
+    flexDirection: 'row',
+    borderRadius: 20,
+    alignItems: 'center',
+    paddingHorizontal: 10,
+  },
+
+  search_input: {
+    width: '98%',
   },
 });
 
