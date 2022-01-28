@@ -1,6 +1,6 @@
 import {
   Appearance,
-  Dimensions,
+  FlatList,
   Image,
   SafeAreaView,
   StyleSheet,
@@ -11,6 +11,10 @@ import {
 import React, {useState, useEffect} from 'react';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {ScrollView, TouchableOpacity} from 'react-native-gesture-handler';
+import SummerPlantsPreview from '../data/flat_list/SummerPlantsPreview';
+import SummerPlantItem from '../components/SummerPlantItem';
+import TopFarmerItem from '../components/TopFarmerItem';
+import TopFarmersData from '../data/flat_list/TopFarmersData';
 
 const Landing = ({navigation}) => {
   const [theme, setTheme] = useState(Appearance.getColorScheme);
@@ -55,10 +59,91 @@ const Landing = ({navigation}) => {
 
       <View style={lightMode.text_input_container}>
         <FontAwesome name="search" size={20} color={'#3a3a3a'} />
-        <TextInput placeholder='Search here e.g Cattle, Banana, Broiler, Manure, Market' style={lightMode.search_input} />
+        <TextInput
+          placeholder="Search here e.g Cattle, Banana, Broiler, Manure, Market"
+          style={lightMode.search_input}
+        />
       </View>
-      <ScrollView style={{flex: 1, backgroundColor: '#3a3', width: '100%', marginTop: 20}}>
-          
+      <ScrollView
+        style={{
+          flex: 1,
+          width: '100%',
+          marginTop: 20,
+        }}>
+        <View>
+          <View
+            style={{
+              flexDirection: 'row',
+              flex: 1,
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              marginTop: 20,
+            }}>
+            <Text style={darkMode.flat_list_heads}>
+              What to plant this January
+            </Text>
+            <TouchableOpacity>
+              <Text
+                style={{
+                  color: 'skyblue',
+                  fontWeight: 'bold',
+                  paddingHorizontal: 20,
+                }}>
+                see more
+              </Text>
+            </TouchableOpacity>
+          </View>
+          <FlatList
+            data={SummerPlantsPreview}
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+            scrollEventThrottle={32}
+            bouncesZoom={true}
+            zoomScale={2}
+            maximumZoomScale={10}
+            minimumZoomScale={2}
+            bounces={false}
+            renderItem={({item}) => <SummerPlantItem item={item} />}
+          />
+        </View>
+        
+
+        <View>
+          <View
+            style={{
+              flexDirection: 'row',
+              flex: 1,
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              marginTop: 50,
+            }}>
+            <Text style={darkMode.flat_list_heads}>
+              Our top range of farmers
+            </Text>
+            <TouchableOpacity>
+              <Text
+                style={{
+                  color: 'skyblue',
+                  fontWeight: 'bold',
+                  paddingHorizontal: 20,
+                }}>
+                see more
+              </Text>
+            </TouchableOpacity>
+          </View>
+          <FlatList
+            data={TopFarmersData}
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+            scrollEventThrottle={32}
+            bouncesZoom={true}
+            zoomScale={2}
+            maximumZoomScale={10}
+            minimumZoomScale={2}
+            bounces={false}
+            renderItem={({item}) => <TopFarmerItem item={item} />}
+          />
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
@@ -121,5 +206,12 @@ const darkMode = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     color: '#000',
+  },
+
+  flat_list_heads: {
+    fontSize: 20,
+    color: '#000',
+    fontWeight: 'bold',
+    paddingHorizontal: 20,
   },
 });
