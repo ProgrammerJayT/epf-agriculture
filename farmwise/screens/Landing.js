@@ -15,6 +15,7 @@ import SummerPlantsPreview from '../data/flat_list/SummerPlantsPreview';
 import SummerPlantItem from '../components/SummerPlantItem';
 import TopFarmerItem from '../components/TopFarmerItem';
 import TopFarmersData from '../data/flat_list/TopFarmersData';
+import LottieView from 'lottie-react-native';
 
 const Landing = ({navigation}) => {
   const [theme, setTheme] = useState(Appearance.getColorScheme);
@@ -70,6 +71,12 @@ const Landing = ({navigation}) => {
           width: '100%',
           marginTop: 20,
         }}>
+        <LottieView
+          style={{width: 100, height: 100, alignSelf: 'center'}}
+          source={require('../data/JSON_animation/55578-agricultural-icon-animation.json')}
+          autoPlay
+          loop
+        />
         <View>
           <View
             style={{
@@ -106,8 +113,13 @@ const Landing = ({navigation}) => {
             renderItem={({item}) => <SummerPlantItem item={item} />}
           />
         </View>
-        
 
+        <LottieView
+          style={{width: 100, height: 100, alignSelf: 'center', marginTop: 20}}
+          source={require('../data/JSON_animation/89982-tractor.json')}
+          autoPlay
+          loop
+        />
         <View>
           <View
             style={{
@@ -144,6 +156,13 @@ const Landing = ({navigation}) => {
             renderItem={({item}) => <TopFarmerItem item={item} />}
           />
         </View>
+
+        <LottieView
+          style={{width: 150, height: 150, alignSelf: 'center', marginTop: 20}}
+          source={require('../data/JSON_animation/21306-delivery-agriculture-style.json')}
+          autoPlay
+          loop
+        />
       </ScrollView>
     </SafeAreaView>
   );
@@ -193,8 +212,8 @@ const darkMode = StyleSheet.create({
   },
 
   profile_image: {
-    width: 50,
-    height: 50,
+    width: 60,
+    height: 60,
     resizeMode: 'cover',
     borderRadius: 50,
     overflow: 'hidden',
