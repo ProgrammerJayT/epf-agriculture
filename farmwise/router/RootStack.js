@@ -6,6 +6,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import DrawerStack from './DrawerStack';
 import MyProfile from '../screens/MyProfile';
 import About from '../screens/About';
+import ShareApp from '../screens/ShareApp';
 
 const Stack = createNativeStackNavigator();
 
@@ -18,8 +19,8 @@ const RootStack = () => {
           component={DrawerStack}
         />
         <Stack.Screen
-          name="About"
-          component={About}
+          name="ShareApp"
+          component={ShareApp}
         />
       </Stack.Navigator>
     </NavigationContainer>

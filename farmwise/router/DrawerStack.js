@@ -11,10 +11,11 @@ import FindVet from '../screens/FindVet';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Fontisto from 'react-native-vector-icons/Fontisto';
+import Farming101 from '../screens/Farming101';
 
 const Drawer = createDrawerNavigator();
 
-const DrawerStack = () => {
+const DrawerStack = ({navigation}) => {
   return (
     <Drawer.Navigator
       screenOptions={{headerShown: false, drawerLabelStyle: {marginLeft: -20}}}
@@ -28,6 +29,18 @@ const DrawerStack = () => {
           drawerActiveTintColor: '#fff',
           drawerIcon: ({color}) => (
             <Ionicons name="home-outline" size={25} color={color} />
+          ),
+        }}
+      />
+      <Drawer.Screen
+        name="Farming 101"
+        component={Farming101}
+        options={{
+          drawerActiveBackgroundColor: '#000',
+          drawerInactiveTintColor: '#fff',
+          drawerActiveTintColor: '#fff',
+          drawerIcon: ({color}) => (
+            <Fontisto name="island" size={25} color={color} />
           ),
         }}
       />

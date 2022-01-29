@@ -30,14 +30,27 @@ const CustomDrawer = props => {
       </DrawerContentScrollView>
       <View style={styles.divider}></View>
       <View>
+      
+      <TouchableOpacity style={styles.sign_out_btn} onPress={()=>{props.navigation.navigate('ShareApp')}}>
+        <View
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+          }}>
+          <Ionicons name="share-social-outline" size={25} color="#fff" />
+          <Text style={styles.sign_out_text}>Tell your friends about this app</Text>
+        </View>
+      </TouchableOpacity>
+
+
         <TouchableOpacity style={styles.sign_out_btn}>
           <View
             style={{
               flexDirection: 'row',
               alignItems: 'center',
             }}>
-            <Ionicons name="share-social-outline" size={30} color="#fff" />
-            <Text style={styles.sign_out_text}>Tell your friends about this app</Text>
+            <Ionicons name="cloud-download-outline" size={25} color="#fff" />
+            <Text style={styles.sign_out_text}>Ever heard of Mzolo app? Get it now!</Text>
           </View>
         </TouchableOpacity>
 
@@ -47,7 +60,7 @@ const CustomDrawer = props => {
               flexDirection: 'row',
               alignItems: 'center',
             }}>
-            <FontAwesome name="sign-out" size={30} color="#fff" />
+            <FontAwesome name="sign-out" size={25} color="#fff" />
             <Text style={styles.sign_out_text}>Sign Out</Text>
           </View>
         </TouchableOpacity>
