@@ -3,14 +3,16 @@ import React from 'react';
 import QRCode from 'react-native-qrcode-svg';
 
 const ShareApp = () => {
-
-    const saveCode = () => {
-        
-    }
+  let base64Logo = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAA..';
 
   return (
     <SafeAreaView style={styles.body}>
-      <QRCode style = {styles.qr_code} value="http://awesome.link.qr" />
+      <QRCode
+        value="Farm Wise"
+        logo={{uri: base64Logo}}
+        logoSize={60}
+        logoBackgroundColor="transparent"
+      />
     </SafeAreaView>
   );
 };
@@ -24,6 +26,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#fff',
   },
-  qr_code: {
-  },
+  qr_code: {},
 });

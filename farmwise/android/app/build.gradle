@@ -76,7 +76,6 @@ import com.android.build.OutputFile
  *   extraPackagerArgs: []
  * ]
  */
-
 project.ext.react = [
     enableHermes: false,  // clean and rebuild if changing
 ]
@@ -136,6 +135,10 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+
+        packagingOptions {
+            pickFirst '**/*.so'
+        }
     }
     splits {
         abi {
@@ -196,6 +199,8 @@ dependencies {
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
 
     compile project(':react-native-vector-icons')
+    implementation 'com.mapbox.maps:android:10.2.0'
+
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
         exclude group:'com.facebook.fbjni'
