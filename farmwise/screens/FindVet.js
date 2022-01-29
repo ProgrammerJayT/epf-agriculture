@@ -1,6 +1,7 @@
 import {StyleSheet, Text, Switch, View, TouchableOpacity} from 'react-native';
 import React, {useState, useEffect} from 'react';
 import Map from './Map';
+import LottieView from 'lottie-react-native';
 
 const FindVet = () => {
   const [isEnabled, setIsEnabled] = useState(false);
@@ -23,7 +24,7 @@ const FindVet = () => {
       </View>
       <View style={styles.below_map}>
         <View style={styles.switch}>
-          <TouchableOpacity style = {styles.switch_button}>
+          <TouchableOpacity style={styles.switch_button}>
             <Text style={styles.switch_text}>Switch view mode to {view}</Text>
           </TouchableOpacity>
         </View>
@@ -44,14 +45,14 @@ const styles = StyleSheet.create({
 
   above_map: {
     width: '100%',
-    height: '10%',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
 
   below_map: {
     width: '100%',
-    height: '10%',
     alignItems: 'center',
-    justifyContent: 'center',    
+    justifyContent: 'center',
   },
 
   switch: {
@@ -63,17 +64,18 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 15,
     fontWeight: 'bold',
-    paddingVertical: 10,
+    paddingVertical: 5,
     paddingHorizontal: 20,
   },
 
   map_container: {
-    height: '90%',
+    flex: 1,
   },
 
   switch_button: {
     borderWidth: 0.5,
     borderColor: '#fff',
     borderRadius: 20,
-  }
+    marginVertical: 10,
+  },
 });
