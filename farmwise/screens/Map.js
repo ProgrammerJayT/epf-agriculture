@@ -29,8 +29,10 @@ const Map = () => {
 
   return (
     <View style={styles.body}>
-      <MapboxGL.MapView style={styles.map}>
-        <MapboxGL.Camera zoomLevel={17} centerCoordinate={[myLng, myLat]} />
+      <MapboxGL.MapView
+        style={styles.map}
+        styleURL="mapbox://styles/mapbox/satellite-v9">
+        <MapboxGL.Camera zoomLevel={17} centerCoordinate={[myLng, myLat]} animationMode='flyTo' />
         <MapboxGL.MarkerView id={'marker'} coordinate={[myLng, myLat]}>
           <View>
             <View style={styles.markerContainer}>
