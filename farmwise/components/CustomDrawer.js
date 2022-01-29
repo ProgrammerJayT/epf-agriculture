@@ -12,28 +12,48 @@ import {
   DrawerItemList,
 } from '@react-navigation/drawer';
 import {TouchableOpacity} from 'react-native-gesture-handler';
-
+import LottieView from 'lottie-react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const CustomDrawer = props => {
   return (
     <SafeAreaView style={styles.body}>
-      <DrawerContentScrollView
-        {...props}
-        contentContainerStyle={styles.container}>
+      <DrawerContentScrollView {...props}>
+        <LottieView
+          style={{width: 150, height: 250, alignSelf: 'center'}}
+          source={require('../data/JSON_animation/72315-watering-plants.json')}
+          autoPlay
+          loop
+        />
         <DrawerItemList {...props} />
       </DrawerContentScrollView>
       <View style={styles.divider}></View>
       <View>
         <TouchableOpacity style={styles.sign_out_btn}>
-          <View style={{flexDirection: 'row', justifyContent: 'center'}}>
-            <FontAwesome name="sign-out" size={30} color="#000" />
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+            }}>
+            <Ionicons name="share-social-outline" size={30} color="#fff" />
+            <Text style={styles.sign_out_text}>Tell your friends about this app</Text>
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.sign_out_btn}>
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+            }}>
+            <FontAwesome name="sign-out" size={30} color="#fff" />
             <Text style={styles.sign_out_text}>Sign Out</Text>
           </View>
         </TouchableOpacity>
       </View>
 
-      <StatusBar backgroundColor={'#00aeff'} />
+      <StatusBar backgroundColor={'#872b00'} />
     </SafeAreaView>
   );
 };
@@ -43,26 +63,27 @@ export default CustomDrawer;
 const styles = StyleSheet.create({
   body: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#872b00',
   },
 
   sign_out_btn: {
     width: '100%',
-    alignSelf: 'center',
     marginRight: 5,
     borderTopRightRadius: 10,
-    marginLeft: 5,
+    marginLeft: 20,
+    marginTop: 10,
+    marginBottom: 20,
   },
 
   sign_out_text: {
-    padding: 10,
-    fontSize: 20,
-    color: 'black',
+    fontSize: 15,
+    color: '#fff',
     fontWeight: 'bold',
+    marginLeft: 10,
   },
 
   container: {
-    backgroundColor: '#00aeff',
+    backgroundColor: 'green',
   },
 
   image_bg: {
@@ -71,8 +92,9 @@ const styles = StyleSheet.create({
 
   divider: {
     height: 1,
-    width: '80%',
+    width: '90%',
     backgroundColor: '#a3a3a3',
     alignSelf: 'center',
+    marginBottom: 10,
   },
 });

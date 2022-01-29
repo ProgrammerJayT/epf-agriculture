@@ -18,10 +18,6 @@ const RootStack = () => {
           component={DrawerStack}
         />
         <Stack.Screen
-          name="MyProfile"
-          component={MyProfile}
-        />
-        <Stack.Screen
           name="About"
           component={About}
         />

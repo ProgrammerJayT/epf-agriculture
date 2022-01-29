@@ -25,7 +25,7 @@ const Landing = ({navigation}) => {
   });
 
   const toMyProfile = () => {
-    navigation.navigate('MyProfile');
+    navigation.navigate('Profile');
   };
 
   const toAbout = () => {
@@ -212,7 +212,7 @@ const lightMode = StyleSheet.create({
     borderRadius: 50,
     overflow: 'hidden',
     borderWidth: 1,
-    borderColor: '#fff',
+    borderColor: '#000',
   },
 });
 

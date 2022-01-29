@@ -4,7 +4,7 @@ import React from 'react';
 const Market = () => {
   return (
     <View>
-      <Text></Text>
+      <Text>Flopo?</Text>
     </View>
   );
 };
