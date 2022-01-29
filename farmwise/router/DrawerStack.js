@@ -76,7 +76,7 @@ const DrawerStack = ({navigation}) => {
           drawerInactiveTintColor: '#fff',
           drawerActiveTintColor: '#fff',
           drawerIcon: ({color}) => (
-            <Fontisto name="doctor" size={20} color={color} />
+            <Fontisto name="doctor" size={25} color={color} />
           ),
         }}
       />
@@ -90,7 +90,7 @@ const DrawerStack = ({navigation}) => {
           drawerIcon: ({color}) => (
             <Ionicons
               name="information-circle-outline"
-              size={20}
+              size={25}
               color={color}
             />
           ),
@@ -104,7 +104,7 @@ const DrawerStack = ({navigation}) => {
           drawerInactiveTintColor: '#fff',
           drawerActiveTintColor: '#fff',
           drawerIcon: ({color}) => (
-            <Ionicons name="settings-outline" size={20} color={color} />
+            <Ionicons name="settings-outline" size={25} color={color} />
           ),
         }}
       />
