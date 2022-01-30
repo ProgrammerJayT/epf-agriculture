@@ -16,6 +16,8 @@ import SummerPlantItem from '../components/SummerPlantItem';
 import TopFarmerItem from '../components/TopFarmerItem';
 import TopFarmersData from '../data/flat_list/TopFarmersData';
 import LottieView from 'lottie-react-native';
+import MarketData from '../data/flat_list/MarketData';
+import MarketItem from '../components/MarketItem';
 
 const Landing = ({navigation}) => {
   const [theme, setTheme] = useState(Appearance.getColorScheme);
@@ -58,25 +60,11 @@ const Landing = ({navigation}) => {
         </TouchableOpacity>
       </View>
 
-      <View style={lightMode.text_input_container}>
-        <FontAwesome name="search" size={20} color={theme == 'light'? '#3a3a3a' : '#fff'} />
-        <TextInput
-          placeholder="Search here e.g Cattle, Banana, Broiler, Manure, Market"
-          style={lightMode.search_input}
-        />
-      </View>
       <ScrollView
         style={{
           flex: 1,
           width: '100%',
-          marginTop: 20,
         }}>
-        <LottieView
-          style={{width: 100, height: 100, alignSelf: 'center'}}
-          source={require('../data/JSON_animation/55578-agricultural-icon-animation.json')}
-          autoPlay
-          loop
-        />
         <View>
           <View
             style={{
@@ -84,7 +72,7 @@ const Landing = ({navigation}) => {
               flex: 1,
               justifyContent: 'space-between',
               alignItems: 'center',
-              marginTop: 20,
+              marginTop: 10,
             }}>
             <Text style={theme == 'light'? lightMode.flat_list_heads : darkMode.flat_list_heads}>
               What to plant this January
@@ -115,7 +103,7 @@ const Landing = ({navigation}) => {
         </View>
 
         <LottieView
-          style={{width: 100, height: 100, alignSelf: 'center', marginTop: 20}}
+          style={{width: 80, height: 80, alignSelf: 'center'}}
           source={require('../data/JSON_animation/89982-tractor.json')}
           autoPlay
           loop
@@ -127,21 +115,11 @@ const Landing = ({navigation}) => {
               flex: 1,
               justifyContent: 'space-between',
               alignItems: 'center',
-              marginTop: 50,
+              marginTop: 25,
             }}>
             <Text style={theme == 'light'? lightMode.flat_list_heads : darkMode.flat_list_heads}>
-              Our top range of farmers
+              Our top range of farming experts
             </Text>
-            <TouchableOpacity>
-              <Text
-                style={{
-                  color: 'skyblue',
-                  fontWeight: 'bold',
-                  paddingHorizontal: 20,
-                }}>
-                see more
-              </Text>
-            </TouchableOpacity>
           </View>
           <FlatList
             data={TopFarmersData}
@@ -158,8 +136,40 @@ const Landing = ({navigation}) => {
         </View>
 
         <LottieView
-          style={{width: 150, height: 150, alignSelf: 'center', marginTop: 20}}
+          style={{width: 100, height: 100, alignSelf: 'center'}}
           source={require('../data/JSON_animation/21306-delivery-agriculture-style.json')}
+          autoPlay
+          loop
+        />
+        <View>
+          <View
+            style={{
+              flexDirection: 'row',
+              flex: 1,
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              marginTop: 25,
+            }}>
+            <Text style={theme == 'light'? lightMode.flat_list_heads : darkMode.flat_list_heads}>
+              Our top range of farming experts
+            </Text>
+          </View>
+          <FlatList
+            data={MarketData}
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+            scrollEventThrottle={32}
+            bouncesZoom={true}
+            zoomScale={2}
+            maximumZoomScale={10}
+            minimumZoomScale={2}
+            bounces={false}
+            renderItem={({item}) => <MarketItem item={item} />}
+          />
+        </View>
+        <LottieView
+          style={{width: 80, height: 80, alignSelf: 'center'}}
+          source={require('../data/JSON_animation/55578-agricultural-icon-animation.json')}
           autoPlay
           loop
         />
@@ -176,20 +186,6 @@ const lightMode = StyleSheet.create({
     backgroundColor: '#fff',
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  text_input_container: {
-    borderWidth: 0.5,
-    borderColor: '#3a3a3a',
-    width: '90%',
-    marginTop: 10,
-    flexDirection: 'row',
-    borderRadius: 20,
-    alignItems: 'center',
-    paddingHorizontal: 10,
-  },
-
-  search_input: {
-    width: '98%',
   },
 
   farm_wise: {
@@ -230,8 +226,10 @@ const darkMode = StyleSheet.create({
     width: '100%',
     paddingLeft: 20,
     paddingRight: 20,
-    marginTop: 10,
+    marginTop: 5,
     alignItems: 'center',
+    marginBottom: 20,
+    marginTop: 10,
   },
 
   profile_image: {
