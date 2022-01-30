@@ -1,4 +1,5 @@
 import {
+  Dimensions,
   Image,
   SafeAreaView,
   ScrollView,
@@ -10,23 +11,45 @@ import React from 'react';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-const Farming101 = () => {
+const Farming101 = ({navigation}) => {
+
+  const gotoLettuce = () => {
+    navigation.navigate('Lettuce');
+  }
+
   return (
     <SafeAreaView style={styles.body}>
-      <ScrollView></ScrollView>
+      <ScrollView contentContainerStyle={styles.scroller} showsVerticalScrollIndicator = {false} >
+      <View></View>
+          <View style={styles.primary}>
+            <View style={{flex: 1}}></View>
+            <TouchableOpacity style={styles.more_button} onPress={gotoLettuce}>
+              <Text style={styles.scientific_name}>more info</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.secondary}>
+            <Text style={styles.item_name}>Lettuce</Text>
+            <Image
+              style={styles.image}
+              source={require('../res/images/lettuce.jpg')}></Image>
+          </View>
 
-      <View style={styles.primary}>
-        <View style={{flex: 1}}></View>
-        <TouchableOpacity style={styles.more_button}>
-          <Text style={styles.scientific_name}>more info</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={styles.secondary}>
-        <Image
-          style={styles.image}
-          source={require('../res/images/lettuce.jpg')}></Image>
-        <Text style={styles.item_name}>Lettuce</Text>
-      </View>
+
+          <View style = {{marginTop: 100}}></View>
+          <View style={styles.primary}>
+            <View style={{flex: 1}}></View>
+            <TouchableOpacity style={styles.more_button}>
+              <Text style={styles.scientific_name}>more info</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.secondary}>
+            <Text style={styles.item_name}>Cabbage</Text>
+            <Image
+              style={styles.image}
+              source={require('../res/images/cabbage.jpg')}></Image>
+          </View>
+          <View style = {{marginTop: 100}}></View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
@@ -37,12 +60,11 @@ const styles = StyleSheet.create({
   body: {
     flex: 1,
     backgroundColor: '#dbdbdb',
-    alignItems: 'center',
   },
 
   image: {
-    width: 150,
-    height: 150,
+    width: 100,
+    height: 100,
     overflow: 'hidden',
     borderRadius: 100,
     marginTop: 20,
@@ -50,16 +72,17 @@ const styles = StyleSheet.create({
   primary: {
     width: '70%',
     backgroundColor: '#38c700',
-    height: '40%',
+    height: '30%',
     marginTop: 20,
     alignItems: 'center',
     borderRadius: 20,
+    marginBottom: 20,
   },
   secondary: {
     width: '80%',
     backgroundColor: '#fff',
-    height: '25%',
-    marginTop: '-80%',
+    height: '20%',
+    marginTop: '-60%',
     borderRadius: 20,
     alignItems: 'center',
   },
@@ -75,10 +98,14 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
   },
   more_button: {
-    backgroundColor: '#000',
+    backgroundColor: 'brown',
     borderRadius: 20,
     width: 200,
     marginBottom: 20,
+    alignItems: 'center',
+  },
+  scroller: {
+    flexGrow: 1,
     alignItems: 'center',
   },
 });

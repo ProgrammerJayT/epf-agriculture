@@ -7,6 +7,7 @@ import DrawerStack from './DrawerStack';
 import MyProfile from '../screens/MyProfile';
 import About from '../screens/About';
 import ShareApp from '../screens/ShareApp';
+import LettuceRequires from '../screens/LettuceRequires';
 
 const Stack = createNativeStackNavigator();
 
@@ -21,6 +22,10 @@ const RootStack = () => {
         <Stack.Screen
           name="ShareApp"
           component={ShareApp}
+        />
+        <Stack.Screen
+          name="Lettuce"
+          component={LettuceRequires}
         />
       </Stack.Navigator>
     </NavigationContainer>
