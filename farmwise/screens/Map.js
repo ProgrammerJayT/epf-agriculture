@@ -13,6 +13,8 @@ const Map = () => {
   const [myLat, setMyLat] = useState(null);
   const [myLng, setMyLng] = useState(null);
 
+  const [zoomLevel, setZoomLevel] = useState(13);
+
   Geolocation.getCurrentPosition(
     position => {
       console.log(position.coords.latitude);
@@ -30,10 +32,9 @@ const Map = () => {
   return (
     <View style={styles.body}>
       <MapboxGL.MapView
-        style={styles.map}
-        styleURL="mapbox://styles/mapbox/satellite-v9">
-        <MapboxGL.Camera zoomLevel={17} centerCoordinate={[myLng, myLat]} animationMode='flyTo' />
-        <MapboxGL.MarkerView id={'marker'} coordinate={[myLng, myLat]}>
+        style={styles.map}>
+        <MapboxGL.Camera zoomLevel={zoomLevel} centerCoordinate={[myLng, myLat]} animationMode='flyTo' />
+        <MapboxGL.MarkerView id={'my position'} coordinate={[myLng, myLat]}>
           <View>
             <View style={styles.markerContainer}>
               <LottieView
@@ -42,6 +43,27 @@ const Map = () => {
                 autoPlay
                 loop
               />
+            </View>
+          </View>
+        </MapboxGL.MarkerView>
+
+        
+        <MapboxGL.MarkerView id={'vet 1'} coordinate={[28.0411, -25.549100]}>
+          <View>
+            <View style={styles.markerContainer}>
+            <Image
+              style={styles.image}
+              source={require('../res/images/pexels-pranidchakan-boonrom-1350593.jpg')}/>
+            </View>
+          </View>
+        </MapboxGL.MarkerView>
+        
+        <MapboxGL.MarkerView id={'vet 2'} coordinate={[28.0461, -25.539100]}>
+          <View>
+            <View style={styles.markerContainer}>
+            <Image
+              style={styles.image}
+              source={require('../res/images/4-7-VetAndCalf-123ducu-iStock-GettyImagesPlus.jpg')}/>
             </View>
           </View>
         </MapboxGL.MarkerView>
@@ -61,5 +83,15 @@ const styles = StyleSheet.create({
   map: {
     width: Dimensions.get('window').width,
     height: '100%',
+  },
+
+  image: {
+    width: 60,
+    height: 60,
+    overflow: 'hidden',
+    borderRadius: 100,
+    marginTop: 20,
+    borderColor: '#fff',
+    borderWidth: 1,
   },
 });

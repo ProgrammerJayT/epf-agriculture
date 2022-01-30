@@ -46,7 +46,7 @@ const Market = ({navigation}) => {
         />
       </View>
 
-      <View style={{flex: 1}}>
+      <View style={{flex: 1, marginBottom: 50}}>
         <View>
           <FlatList
             data={MarketData}
@@ -60,7 +60,7 @@ const Market = ({navigation}) => {
             renderItem={({item}) => <MarketItem item={item} />}
           />
         </View></View>
-      <TouchableOpacity style={{marginBottom: 20}}>
+      <TouchableOpacity style={{marginBottom: 20,width: 200, alignItems: 'center'}}>
         <View style={styles.new_listing_container}>
           <FontAwesome name="plus" size={25} color={'#fff'} />
           <Text style={styles.new_listing_text}>Create new listing</Text>
