@@ -49,6 +49,10 @@ const Farming101 = ({navigation}) => {
               source={require('../res/images/cabbage.jpg')}></Image>
           </View>
           <View style = {{marginTop: 100}}></View>
+          
+      <TouchableOpacity style = {{marginTop: 50, backgroundColor: '#000', marginBottom: 20, borderRadius: 20, width: 250}}>
+        <Text style = {{padding: 20, color: '#fff', textAlign: 'center', fontSize: 15}}>Farming101 Forum</Text>
+      </TouchableOpacity>
       </ScrollView>
     </SafeAreaView>
   );

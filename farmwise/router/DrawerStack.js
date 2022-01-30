@@ -12,6 +12,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import Farming101 from '../screens/Farming101';
+import Wallet from '../screens/Wallet';
 
 const Drawer = createDrawerNavigator();
 
@@ -53,6 +54,22 @@ const DrawerStack = ({navigation}) => {
           drawerActiveTintColor: '#fff',
           drawerIcon: ({color}) => (
             <Ionicons name="person-circle-outline" size={25} color={color} />
+          ),
+        }}
+      />
+      <Drawer.Screen
+        name="Wallet"
+        component={Wallet}
+        options={{
+          drawerActiveBackgroundColor: '#000',
+          drawerInactiveTintColor: '#fff',
+          drawerActiveTintColor: '#fff',
+          drawerIcon: ({color}) => (
+            <Ionicons
+              name="wallet-outline"
+              size={25}
+              color={color}
+            />
           ),
         }}
       />
